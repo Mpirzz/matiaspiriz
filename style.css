@@ -6,7 +6,6 @@
 }
 
 /*HEADER*/
-
 .header{
     height:100px;
     padding: 0 50px;
@@ -24,7 +23,78 @@
 li, a{
     text-decoration: none;
     list-style-image: none;
-    color: whitesmoke;
+    color: #fff;
     display: inline;
 }
+
+.menu-nav a{
+    padding: 0 10px;
+    transition: 0.4s; /*transition -> un efecto visiual suave al mostrar el elemento */
+}
+
+.menu-abierto,
+.menu-cerrado{
+    font-size: 25px;
+    cursor: pointer;/*especifica el tipo de cursor que se mostrara cuando este se encuentre sobre un elemento.*/
+    display: none;
+    transition: 0.3s;
+}
+
+/*vamos a dar un orden a menu-abierto*/
+.menu-abierto{
+    order:1;
+} 
+
+#botton{
+    display:none;
+}
+
+/*MEDIA QUERY: para que la pàgina sea responsive, que se pueda adaptar a las diferentes resoluciones*/
+@media(max-width:763px){
+    .menu-abierto,
+    .menu-cerrado{
+        display: block;
+    }
+
+    .menu-nav{
+        position: fixed; /**/
+        width: 100%; 
+        height: 100vh; /*vh: */
+        background:#383838;
+        right: -100%;
+        top: 0;
+        text-align: center;
+        padding: 100px 0px;
+        z-index: 100; /*El nivel de importancia de un elemento */
+        transition: 0.5s;
+    }
+    .menu-nav a{
+        display: block;
+        padding: 10px;
+    }
+    
+    .menu-cerrado{
+        position: absolute;
+        top: 12px;
+    }
+    /*cuando el boton este checkeado y los hijos :para poder precionar los botones */
+    #botton:checked ~ .menu-nav{
+        right: 0;
+    }
+}
+/*Body*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
